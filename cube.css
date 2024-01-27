@@ -1,0 +1,48 @@
+.cube {
+    position: relative;
+    display: block;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg);
+    animation: CubeAnimation 4s linear infinite;
+}
+
+@keyframes CubeAnimation {
+    0% {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+/* Topo */
+.cube div:nth-child(1) {
+    position: absolute;
+    inset: 0;
+    background: var(--cube-top-color);
+}
+.cube div:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: var(--cube-width);
+    height: var(--cube-height);
+    background: var(--cube-color);
+    transform: translateZ(-280px);
+    filter: blur(20px);
+    box-shadow: var(--cube-shadow);
+}
+
+.cube div:nth-child(2) {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div:nth-child(2) span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
